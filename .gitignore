@@ -1,0 +1,4 @@
+node_modules/
+*.log
+outreach-results.json
+.env
