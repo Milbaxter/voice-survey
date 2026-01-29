@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Röstenkäter för svenska talare i Finland | Voice Survey</title>
+    <meta name="description" content="Professionella röstenkäter för svenska talare i Finland. Rikare data än textenkäter, 40% billigare än traditionella marknadsundersökningsföretag.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        header p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .problem h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+        
+        .problem p {
+            font-size: 20px;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .problem-item {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .problem-item h3 {
+            color: #e53e3e;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 20px;
+        }
+        
+        .solution h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2d3748;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .feature {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .feature p {
+            font-size: 16px;
+            color: #4a5568;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        
+        .how-it-works h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #2d3748;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+        
+        .pricing-subtitle {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 50px;
+        }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .pricing-card.featured {
+            border-color: #667eea;
+            position: relative;
+        }
+        
+        .pricing-card.featured::before {
+            content: "Mest populär";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #2d3748;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #4a5568;
+        }
+        
+        .old-price {
+            text-decoration: line-through;
+            color: #a0aec0;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .pricing-features li::before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: white;
+            color: #667eea;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+            header p {
+                font-size: 18px;
+            }
+            .pricing-cards,
+            .features,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎤 Röstenkäter för svenska talare i Finland</h1>
+            <p>Samla rikare data från finlandssvenskar med röstenkäter. Snabbare, billigare och mer insiktsfullt än traditionella metoder.</p>
+            <a href="#contact" class="cta-button">Kom igång →</a>
+        </div>
+    </header>
+
+    <section class="problem">
+        <div class="container">
+            <h2>Utmaningen</h2>
+            <p>Att nå och förstå svenska talare i Finland är svårt med traditionella metoder.</p>
+            
+            <div class="problem-list">
+                <div class="problem-item">
+                    <h3>Dyrt</h3>
+                    <p>Traditionella marknadsundersökningar kostar €8 500-10 000 per projekt</p>
+                </div>
+                <div class="problem-item">
+                    <h3>Långsamt</h3>
+                    <p>Manuella intervjuer och transkriptioner tar 4-8 veckor</p>
+                </div>
+                <div class="problem-item">
+                    <h3>Begränsad data</h3>
+                    <p>Textenkäter missar tonfall, känsla och nyanser i svaren</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2>Vår lösning</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎙️</div>
+                    <h3>Röstbaserade enkäter</h3>
+                    <p>Deltagare svarar med sin röst. Fångar tonfall, känslor och kontext som text inte kan.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-transkription</h3>
+                    <p>98% noggrann svensk transkription med Whisper AI. Snabbt och kostnadseffektivt.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🇫🇮</div>
+                    <h3>Finlandssvenska-specialist</h3>
+                    <p>Byggt specifikt för svenska talare i Finland. Förstår dialekter och kulturell kontext.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <h2>Så fungerar det</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Design</h3>
+                    <p>Vi hjälper dig utforma enkäten (3-5 röstfrågor)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Rekrytering</h3>
+                    <p>Vi rekryterar svenska talare i Finland (50-1 000 deltagare)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Insamling</h3>
+                    <p>Deltagare svarar via telefon eller webb (2-4 veckor)</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Analys</h3>
+                    <p>AI-transkription + analys. Du får en rapport med insikter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Priser</h2>
+            <p class="pricing-subtitle">40% billigare än traditionella marknadsundersökningsföretag</p>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">€2 499</div>
+                    <ul class="pricing-features">
+                        <li>100 deltagare</li>
+                        <li>3-5 röstfrågor</li>
+                        <li>AI-transkription</li>
+                        <li>Grundläggande rapport</li>
+                        <li>3 veckor leverans</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="old-price">€10 000</div>
+                    <div class="price">€5 999</div>
+                    <ul class="pricing-features">
+                        <li>200 deltagare</li>
+                        <li>3-7 röstfrågor</li>
+                        <li>AI-transkription</li>
+                        <li>Detaljerad analys</li>
+                        <li>2 veckor leverans</li>
+                        <li>Dedikerad projektledare</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">€12 999</div>
+                    <ul class="pricing-features">
+                        <li>500 deltagare</li>
+                        <li>Anpassat antal frågor</li>
+                        <li>AI-transkription</li>
+                        <li>Djupgående insikter</li>
+                        <li>1-2 veckor leverans</li>
+                        <li>Anpassad rapportering</li>
+                        <li>Prioriterad support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="margin-top: 40px; font-size: 18px; color: #4a5568;">
+                🎉 <strong>Betaerbjudande:</strong> De första 5 kunderna får Professional-paketet för €2 999 (spara €3 000)
+            </p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Intresserad?</h2>
+            <p>Kontakta oss för en kostnadsfri konsultation</p>
+            
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Ditt namn" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Din e-post" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="organization" placeholder="Organisation">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Berätta om ditt projekt..."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Skicka förfrågan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Voice Survey. Specialiserade på röstenkäter för svenska talare i Finland.</p>
+        </div>
+    </footer>
+</body>
+</html>
