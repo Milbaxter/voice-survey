@@ -1,0 +1,17 @@
+# Audio samples (too large for git)
+samples/
+*.webm
+*.mp3
+*.wav
+*.m4a
+
+# Results
+validation-results.json
+
+# Node modules
+node_modules/
+package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db

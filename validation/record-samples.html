@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swedish Voice Sample Recorder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .prompt-box {
+            background: #f7f7f7;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .prompt-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .prompt-box p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .recording {
+            background: #e74c3c !important;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .status {
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        .status.info {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        .status.success {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        .status.recording {
+            background: #ffebee;
+            color: #c62828;
+        }
+        audio {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .samples-list {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+        .samples-list h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .sample-item {
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sample-name {
+            font-weight: 500;
+            color: #333;
+        }
+        .sample-time {
+            color: #666;
+            font-size: 14px;
+        }
+        .next-prompt {
+            background: #28a745;
+        }
+        .next-prompt:hover {
+            background: #218838;
+        }
+        .instructions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Swedish Voice Sample Recorder</h1>
+        <p class="subtitle">Technical validation for voice transcription quality</p>
+
+        <div class="instructions">
+            <strong>Instructions:</strong> Click "Start Recording", read the Swedish text aloud clearly, then click "Stop Recording". Download each sample. We need 10-20 samples with different accents/speakers.
+        </div>
+
+        <div class="prompt-box">
+            <h3>Sample <span id="sampleNumber">1</span> of 10</h3>
+            <p id="promptText">Jag bor i Finland och talar svenska som mitt modersmål. Det är viktigt att kunna kommunicera på sitt eget språk.</p>
+        </div>
+
+        <div id="status" class="status info" style="display:none;">
+            Ready to record
+        </div>
+
+        <button id="recordBtn" onclick="toggleRecording()">🎙️ Start Recording</button>
+        <button id="downloadBtn" onclick="downloadRecording()" style="display:none;">💾 Download This Sample</button>
+        <button id="nextBtn" class="next-prompt" onclick="nextPrompt()" style="display:none;">➡️ Next Prompt</button>
+
+        <audio id="audioPlayback" controls style="display:none;"></audio>
+
+        <div class="samples-list">
+            <h3>Recorded Samples (<span id="sampleCount">0</span>)</h3>
+            <div id="samplesList"></div>
+        </div>
+    </div>
+
+    <script>
+        let mediaRecorder;
+        let audioChunks = [];
+        let currentRecording = null;
+        let sampleCount = 0;
+        let currentSampleNumber = 1;
+        let recordedSamples = [];
+
+        const prompts = [
+            "Jag bor i Finland och talar svenska som mitt modersmål. Det är viktigt att kunna kommunicera på sitt eget språk.",
+            "I morgon ska jag besöka min syster i Helsingfors. Vi planerar att gå på bio och äta middag tillsammans.",
+            "Vädret har varit väldigt kallt denna vecka. Jag hoppas att våren kommer snart med varmare temperaturer.",
+            "Min favorithobby är att läsa böcker. Jag tycker särskilt om kriminalromaner och historiska romaner.",
+            "Jag arbetar som lärare på en svensk skola i Finland. Det är ett givande jobb att undervisa unga elever.",
+            "Vi behöver fler svenska språktjänster i Finland. Det är viktigt för minoritetsspråk att bevaras.",
+            "Förra sommaren reste jag till Stockholm. Det var fantastiskt att höra olika svenska dialekter.",
+            "Jag tycker om att laga mat. Min specialitet är köttbullar med potatismos och lingonsylt.",
+            "Digitaliseringen har förändrat samhället mycket. Nu kan vi arbeta hemifrån och hålla möten online.",
+            "Hälsovården i Finland är mycket bra, men det är viktigt att kunna få service på svenska också."
+        ];
+
+        async function toggleRecording() {
+            const btn = document.getElementById('recordBtn');
+            const status = document.getElementById('status');
+            
+            if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    mediaRecorder = new MediaRecorder(stream);
+                    
+                    mediaRecorder.ondataavailable = (event) => {
+                        audioChunks.push(event.data);
+                    };
+                    
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                        currentRecording = audioBlob;
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        
+                        const audioPlayback = document.getElementById('audioPlayback');
+                        audioPlayback.src = audioUrl;
+                        audioPlayback.style.display = 'block';
+                        
+                        document.getElementById('downloadBtn').style.display = 'block';
+                        document.getElementById('nextBtn').style.display = 'block';
+                        
+                        status.className = 'status success';
+                        status.textContent = '✅ Recording complete! Listen, download, then move to next prompt.';
+                        status.style.display = 'block';
+                    };
+                    
+                    audioChunks = [];
+                    mediaRecorder.start();
+                    
+                    btn.textContent = '⏹️ Stop Recording';
+                    btn.className = 'recording';
+                    status.className = 'status recording';
+                    status.textContent = '🔴 Recording... Read the text above clearly';
+                    status.style.display = 'block';
+                    
+                } catch (err) {
+                    alert('Error accessing microphone: ' + err.message);
+                }
+            } else {
+                mediaRecorder.stop();
+                mediaRecorder.stream.getTracks().forEach(track => track.stop());
+                
+                btn.textContent = '🎙️ Start Recording';
+                btn.classList.remove('recording');
+            }
+        }
+
+        function downloadRecording() {
+            if (!currentRecording) return;
+            
+            const url = URL.createObjectURL(currentRecording);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `swedish-sample-${currentSampleNumber}-${Date.now()}.webm`;
+            a.click();
+            
+            // Track this sample
+            recordedSamples.push({
+                number: currentSampleNumber,
+                prompt: prompts[currentSampleNumber - 1],
+                time: new Date().toLocaleTimeString()
+            });
+            
+            updateSamplesList();
+        }
+
+        function nextPrompt() {
+            if (currentSampleNumber >= prompts.length) {
+                alert('All prompts completed! You can record more by starting over, or download all samples and proceed to testing.');
+                return;
+            }
+            
+            currentSampleNumber++;
+            document.getElementById('sampleNumber').textContent = currentSampleNumber;
+            document.getElementById('promptText').textContent = prompts[currentSampleNumber - 1];
+            
+            // Reset UI
+            document.getElementById('audioPlayback').style.display = 'none';
+            document.getElementById('downloadBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+            document.getElementById('status').style.display = 'none';
+            currentRecording = null;
+        }
+
+        function updateSamplesList() {
+            const list = document.getElementById('samplesList');
+            document.getElementById('sampleCount').textContent = recordedSamples.length;
+            
+            list.innerHTML = recordedSamples.map(sample => `
+                <div class="sample-item">
+                    <div>
+                        <div class="sample-name">Sample ${sample.number}</div>
+                        <div class="sample-time">${sample.time}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

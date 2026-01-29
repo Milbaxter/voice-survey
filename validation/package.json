@@ -1,0 +1,15 @@
+{
+  "name": "voice-survey-validation",
+  "version": "1.0.0",
+  "description": "Technical validation for Swedish voice transcription",
+  "main": "test-transcription.js",
+  "scripts": {
+    "test": "node test-transcription.js"
+  },
+  "keywords": ["swedish", "voice", "transcription", "whisper", "validation"],
+  "author": "Voice Survey",
+  "license": "MIT",
+  "dependencies": {
+    "form-data": "^4.0.0"
+  }
+}
