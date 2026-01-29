@@ -1,0 +1,83 @@
+{
+  "batch_1": [
+    {
+      "organization": "THL (Finnish Institute for Health and Welfare)",
+      "contact_email": "tervesuomi@thl.fi",
+      "contact_name": "Unknown",
+      "sent_date": "2026-01-29",
+      "sent_time": "21:10 UTC",
+      "status": "sent",
+      "response_received": false,
+      "response_date": null,
+      "response_summary": null,
+      "follow_up_1_date": null,
+      "follow_up_2_date": null,
+      "discovery_call_booked": false,
+      "discovery_call_date": null,
+      "outcome": "pending",
+      "notes": "Healthy Finland Survey: 64,000 respondents. Huge potential.",
+      "priority": "HIGHEST"
+    },
+    {
+      "organization": "Statistics Finland - Consumer Survey",
+      "contact_email": "consumer.survey@stat.fi",
+      "contact_name": "Unknown",
+      "sent_date": "2026-01-29",
+      "sent_time": "21:10 UTC",
+      "status": "sent",
+      "response_received": false,
+      "response_date": null,
+      "response_summary": null,
+      "follow_up_1_date": null,
+      "follow_up_2_date": null,
+      "discovery_call_booked": false,
+      "discovery_call_date": null,
+      "outcome": "pending",
+      "notes": "National statistics agency. Monthly CATI surveys (Kuluttajabarometri).",
+      "priority": "HIGHEST"
+    },
+    {
+      "organization": "Finnish Institute of Occupational Health",
+      "contact_email": "viestinta@ttl.fi",
+      "contact_name": "Unknown",
+      "sent_date": "2026-01-29",
+      "sent_time": "21:10 UTC",
+      "status": "sent",
+      "response_received": false,
+      "response_date": null,
+      "response_summary": null,
+      "follow_up_1_date": null,
+      "follow_up_2_date": null,
+      "discovery_call_booked": false,
+      "discovery_call_date": null,
+      "outcome": "pending",
+      "notes": "Finnish Public Sector Study (FPS): 46,000 employees. Biennial surveys.",
+      "priority": "HIGHEST"
+    },
+    {
+      "organization": "University of Helsinki - Citizen Barometer",
+      "contact_email": "kansalaisbarometri@helsinki.fi",
+      "contact_name": "Unknown",
+      "sent_date": "2026-01-29",
+      "sent_time": "21:10 UTC",
+      "status": "sent",
+      "response_received": false,
+      "response_date": null,
+      "response_summary": null,
+      "follow_up_1_date": null,
+      "follow_up_2_date": null,
+      "discovery_call_booked": false,
+      "discovery_call_date": null,
+      "outcome": "pending",
+      "notes": "New survey infrastructure. Looking for innovative methods.",
+      "priority": "HIGH"
+    }
+  ],
+  "summary": {
+    "total_sent": 4,
+    "total_responses": 0,
+    "response_rate": "0%",
+    "discovery_calls_booked": 0,
+    "last_updated": "2026-01-29T21:10:00Z"
+  }
+}
