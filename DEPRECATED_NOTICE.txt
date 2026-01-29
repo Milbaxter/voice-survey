@@ -1,0 +1,23 @@
+FILES WITH INCORRECT PRODUCT MODEL (DEPRECATED):
+
+The following files describe "async voice surveys" (people record on their own time).
+This is NOT what we're building.
+
+ACTUAL PRODUCT: AI phone interviews (AI calls people in real-time, like CATI)
+
+Deprecated files:
+- EMAIL_DRAFT_v2_PHONE_REPLACEMENT.md
+- EMAIL_DRAFT_SWEDISH.md
+- READY_TO_SEND.md
+- READY_TO_SEND_FINNISH.md
+- READY_TO_SEND_SWEDISH.md
+
+CURRENT FILES (CORRECT MODEL):
+- SPEC.md - Product specification
+- README.md - Project overview
+- READY_TO_SEND_BATCH_1.md - Correct email templates
+- EMAIL_TEMPLATES_CORRECTED.md - All email templates
+- OUTREACH_HUB.md - Outreach command center
+
+Created: 2026-01-29
+Reason: Product model clarified - we're building AI CATI, not async surveys
