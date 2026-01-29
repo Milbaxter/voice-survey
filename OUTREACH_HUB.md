@@ -22,9 +22,9 @@
 | Organization | Contact Email | Priority | Status | Email Template |
 |-------------|---------------|----------|--------|----------------|
 | **THL (Finnish Institute for Health)** | tervesuomi@thl.fi | HIGHEST | ☐ Not sent | Template A (Finnish) |
-| **Statistics Finland** | See their survey pages | HIGHEST | ☐ Not sent | Template A (Finnish) |
-| **Finnish Institute of Occupational Health** | Research dept (need to find) | HIGHEST | ☐ Not sent | Template A (Finnish) |
-| **University of Helsinki - Citizen Barometer** | Research dept (need to find) | HIGH | ☐ Not sent | Template A (Finnish) |
+| **Statistics Finland - Consumer Survey** | consumer.survey@stat.fi | HIGHEST | ☐ Not sent | Template A (Finnish) |
+| **Finnish Institute of Occupational Health** | viestinta@ttl.fi | HIGHEST | ☐ Not sent | Template A (Finnish) |
+| **University of Helsinki - Citizen Barometer** | kansalaisbarometri@helsinki.fi | HIGH | ☐ Not sent | Template A (Finnish) |
 
 ### Template A: Government/Research (Finnish)
 
