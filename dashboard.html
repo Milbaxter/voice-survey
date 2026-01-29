@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Survey - Outreach Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card .number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .contacts {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .contact-card.responded {
+            border-left-color: #10b981;
+        }
+        
+        .contact-card.no-response {
+            border-left-color: #ef4444;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-title {
+            flex: 1;
+        }
+        
+        .contact-title h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .contact-title p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .status-badge.sent {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .status-badge.responded {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-badge.no-response {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .detail-item .icon {
+            font-size: 20px;
+        }
+        
+        .detail-item .text {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 10px;
+        }
+        
+        .priority-badge.highest {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .priority-badge.high {
+            background: #fce7f3;
+            color: #831843;
+        }
+        
+        .notes {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            border-left: 3px solid #667eea;
+        }
+        
+        .response-box {
+            background: #d1fae5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 3px solid #10b981;
+        }
+        
+        .response-box .response-date {
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 5px;
+        }
+        
+        .response-box .response-text {
+            color: #047857;
+            font-size: 14px;
+        }
+        
+        .action-items {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .action-items h3 {
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .action-item {
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .action-item .icon {
+            font-size: 20px;
+        }
+        
+        .no-actions {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .no-actions .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+        
+        .refresh-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 20px;
+        }
+        
+        .refresh-btn:hover {
+            background: #5568d3;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Voice Survey - Outreach Dashboard</h1>
+            <p>AI Phone Interview Service - Customer Outreach Tracking</p>
+        </div>
+        
+        <div class="summary">
+            <div class="stat-card">
+                <div class="number" id="total-sent">-</div>
+                <div class="label">Emails Sent</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="total-responses">-</div>
+                <div class="label">Responses</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="response-rate">-</div>
+                <div class="label">Response Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="calls-booked">-</div>
+                <div class="label">Calls Booked</div>
+            </div>
+        </div>
+        
+        <div class="contacts" id="contacts"></div>
+        
+        <div class="action-items">
+            <h3>📋 Action Items</h3>
+            <div id="action-items"></div>
+        </div>
+        
+        <button class="refresh-btn" onclick="loadData()">🔄 Refresh Data</button>
+        
+        <div class="last-updated" id="last-updated"></div>
+    </div>
+    
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('outreach-tracker.json');
+                const data = await response.json();
+                
+                // Update summary
+                document.getElementById('total-sent').textContent = data.summary.total_sent;
+                document.getElementById('total-responses').textContent = data.summary.total_responses;
+                document.getElementById('response-rate').textContent = data.summary.response_rate;
+                document.getElementById('calls-booked').textContent = data.summary.discovery_calls_booked || 0;
+                
+                // Update contacts
+                const contactsDiv = document.getElementById('contacts');
+                contactsDiv.innerHTML = '';
+                
+                for (const batchName in data) {
+                    if (batchName === 'summary') continue;
+                    
+                    const batch = data[batchName];
+                    
+                    for (const contact of batch) {
+                        const card = document.createElement('div');
+                        card.className = 'contact-card';
+                        if (contact.response_received) {
+                            card.classList.add('responded');
+                        }
+                        
+                        const sentDate = new Date(contact.sent_date);
+                        const now = new Date();
+                        const daysSince = Math.floor((now - sentDate) / (1000 * 60 * 60 * 24));
+                        
+                        let statusBadge = `<span class="status-badge sent">📤 Sent</span>`;
+                        if (contact.response_received) {
+                            statusBadge = `<span class="status-badge responded">✅ Responded</span>`;
+                        } else if (daysSince >= 3) {
+                            statusBadge = `<span class="status-badge no-response">⏰ Follow-up Needed</span>`;
+                        }
+                        
+                        let responseBox = '';
+                        if (contact.response_received) {
+                            responseBox = `
+                                <div class="response-box">
+                                    <div class="response-date">✉️ Response received: ${new Date(contact.response_date).toLocaleString()}</div>
+                                    <div class="response-text">${contact.response_summary}</div>
+                                </div>
+                            `;
+                        }
+                        
+                        card.innerHTML = `
+                            <div class="contact-header">
+                                <div class="contact-title">
+                                    <h2>
+                                        ${contact.organization}
+                                        <span class="priority-badge ${contact.priority.toLowerCase()}">${contact.priority}</span>
+                                    </h2>
+                                    <p>${contact.contact_email}</p>
+                                </div>
+                                ${statusBadge}
+                            </div>
+                            
+                            <div class="contact-details">
+                                <div class="detail-item">
+                                    <span class="icon">📅</span>
+                                    <span class="text">Sent: ${contact.sent_date} ${contact.sent_time}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="icon">⏱️</span>
+                                    <span class="text">${daysSince} days ago</span>
+                                </div>
+                            </div>
+                            
+                            ${responseBox}
+                            
+                            ${contact.notes ? `<div class="notes">💡 ${contact.notes}</div>` : ''}
+                        `;
+                        
+                        contactsDiv.appendChild(card);
+                    }
+                }
+                
+                // Update action items
+                const actionItemsDiv = document.getElementById('action-items');
+                actionItemsDiv.innerHTML = '';
+                
+                let hasActions = false;
+                
+                for (const batchName in data) {
+                    if (batchName === 'summary') continue;
+                    
+                    for (const contact of data[batchName]) {
+                        const sentDate = new Date(contact.sent_date);
+                        const now = new Date();
+                        const daysSince = Math.floor((now - sentDate) / (1000 * 60 * 60 * 24));
+                        
+                        if (!contact.response_received) {
+                            if (daysSince >= 3 && !contact.follow_up_1_date) {
+                                hasActions = true;
+                                const item = document.createElement('div');
+                                item.className = 'action-item';
+                                item.innerHTML = `
+                                    <span class="icon">📧</span>
+                                    <span>Send follow-up 1 to ${contact.organization}</span>
+                                `;
+                                actionItemsDiv.appendChild(item);
+                            } else if (daysSince >= 7 && !contact.follow_up_2_date) {
+                                hasActions = true;
+                                const item = document.createElement('div');
+                                item.className = 'action-item';
+                                item.innerHTML = `
+                                    <span class="icon">📧</span>
+                                    <span>Send follow-up 2 to ${contact.organization}</span>
+                                `;
+                                actionItemsDiv.appendChild(item);
+                            }
+                        } else if (contact.response_received && !contact.discovery_call_booked) {
+                            hasActions = true;
+                            const item = document.createElement('div');
+                            item.className = 'action-item';
+                            item.innerHTML = `
+                                <span class="icon">📞</span>
+                                <span>Book discovery call with ${contact.organization}</span>
+                            `;
+                            actionItemsDiv.appendChild(item);
+                        }
+                    }
+                }
+                
+                if (!hasActions) {
+                    actionItemsDiv.innerHTML = `
+                        <div class="no-actions">
+                            <div class="icon">✅</div>
+                            <div>No immediate actions needed. Wait for responses.</div>
+                        </div>
+                    `;
+                }
+                
+                // Update last updated
+                document.getElementById('last-updated').textContent = 
+                    `Last updated: ${new Date(data.summary.last_updated).toLocaleString()}`;
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                alert('Error loading dashboard data. Make sure outreach-tracker.json exists.');
+            }
+        }
+        
+        // Load data on page load
+        loadData();
+        
+        // Auto-refresh every 60 seconds
+        setInterval(loadData, 60000);
+    </script>
+</body>
+</html>
