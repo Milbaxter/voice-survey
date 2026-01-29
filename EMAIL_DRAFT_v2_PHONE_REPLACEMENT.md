@@ -6,6 +6,8 @@
 
 ## NEW Version: Phone Interview Replacement
 
+**Till:** [Contact Email]
+**Cc:** maximilian.rehn@gmail.com
 **Ämne:** Ersätt dyra telefonintervjuer med röstenkäter?
 
 **Text:**
@@ -37,6 +39,8 @@ Maximilian Rehn
 
 ## Alternative: More Direct
 
+**Till:** [Contact Email]
+**Cc:** maximilian.rehn@gmail.com
 **Ämne:** Sluta ringa folk - samla röstdata billigare
 
 **Text:**
@@ -135,6 +139,8 @@ Maximilian
 
 ## Example: Personalized for Folktinget
 
+**Till:** kanslia@folktinget.fi
+**Cc:** maximilian.rehn@gmail.com
 **Ämne:** Ersätt dyra telefonintervjuer med röstenkäter?
 
 ```

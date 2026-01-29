@@ -1,0 +1,39 @@
+Organization,Type,Contact Email,Website,Phone,Priority,Notes,CATI Confirmed
+"THL (Finnish Institute for Health and Welfare)","Government Research","tervesuomi@thl.fi","https://thl.fi","",HIGHEST,"Healthy Finland Survey: 64,000 respondents. Massive health surveys.",Yes
+"Statistics Finland","Government","See website","https://stat.fi/en/surveys","",HIGHEST,"National statistics agency. Multiple CATI surveys (Consumer, Adult Education, Time Use, etc.)",Yes
+"Finnish Institute of Occupational Health","Research Institute","Research needed","https://www.ttl.fi/en","",HIGHEST,"Finnish Public Sector Study: covers 30% of municipal employees. Largest ongoing survey.",Yes
+"University of Helsinki - Citizen Barometer","University Research","Research needed","https://www.helsinki.fi/en/helsinki-institute-social-sciences-and-humanities","",HIGH,"New survey infrastructure for online surveys/experiments. Social sciences hub.",Unknown
+"Taloustutkimus","Market Research","info@taloustutkimus.fi","https://www.taloustutkimus.fi/in-english.html","",HIGH,"Largest market research firm in Finland. Explicit CATI capability + nationwide phone interviews.",Yes
+"Norstat Finland","Market Research","finland@norstat.com","https://norstat.co/markets/finland/","",HIGH,"Nordic panel provider. 80 CATI stations in Pori + 40 F2F interviewers.",Yes
+"InVeritas Research","Market Research","Research needed","https://inveritasresearch.com/market-research-company-in-finland/","",HIGH,"Explicitly offers CATI services in Finland. International firm.",Yes
+"Kantar Finland","Market Research","finland@kantar.com","https://www.kantar.com/fi","",HIGH,"Global market research firm with Finland operations.",Unknown
+"Futurelab Finland","CX Consulting","info@futurelab.fi","https://futurelab.fi/en/","",HIGH,"Led by Kari Korkiakoski (Finland's leading CX expert). Customer experience consulting.",Unknown
+"Digitalist Finland","CX Consulting","Research needed","https://www.digitalist.fi","",HIGH,"Digital transformation + CX. Worked with City of Helsinki (4,000+ residents surveyed).",Unknown
+"Folktinget (Svenska Finlands folkting)","Government/Advocacy","kanslia@folktinget.fi","https://folktinget.fi","+358 2941 23196",HIGH,"Official consultative parliament for Swedish speakers in Finland.",Unknown
+"Åbo Akademi University","University","communications@abo.fi","https://www.abo.fi","+358 2 215 31",HIGH,"Only Swedish-language university in Finland. Social sciences research.",Unknown
+"Svenska kulturfonden","Foundation","info@skr.fi","https://www.kulturfonden.fi","",HIGH,"Funds Swedish cultural activities and research in Finland.",Unknown
+"Hanken School of Economics","University","info@hanken.fi","https://www.hanken.fi/sv","+358 9 431 331",HIGH,"Swedish-language business school.",Unknown
+"Suomen OnlineTutkimus Oy","Market Research","info@onlinetutkimus.fi","https://www.onlinetutkimus.fi/in-english","",MEDIUM,"Helsinki-based full-service market research company.",Unknown
+"2insights Research","Market Research","info@2insights.com","https://2insights.com/market-research-company-in-finland/","",MEDIUM,"Consumer, Healthcare, Travel research. CATI + Focus Groups.",Yes
+"Sailer Research Agency","Market Research","Research needed","Helsinki-based","",MEDIUM,"Customer research, market research. Helsinki consulting firm.",Unknown
+"Kinrate Analytics","Market Research","Research needed","Turku-based","",MEDIUM,"Tech-focused survey platform. Performance testing, customer insight.",Unknown
+"TGM Research","Market Research","Research needed","https://tgmresearch.com/online-panel-in-finland.html","",MEDIUM,"Mobile market research specialist. Online panels.",Unknown
+"EY Finland","Consulting","Research needed","https://www.ey.com/en_fi","",MEDIUM,"Big 4 consulting. Customer Experience practice. Does surveys for clients.",Unknown
+"Surveypal","SaaS Platform","Research needed","https://surveypal.com","",MEDIUM,"Finnish CX feedback platform (Tampere/Helsinki). Competitor OR acquisition target.",Unknown
+"Hufvudstadsbladet","Media/Newspaper","redaktionen@hbl.fi","https://www.hbl.fi","",MEDIUM,"Largest Swedish daily newspaper in Finland. May commission polls.",Unknown
+"YLE Svenska (YLE Radio Sweden)","Public Media","svenska@yle.fi","https://svenska.yle.fi","",MEDIUM,"Swedish-language public broadcasting. May commission audience research.",Unknown
+"Helsinki City (Swedish services)","Municipality","svenska@hel.fi","https://www.hel.fi/sv","",MEDIUM,"Capital city bilingual services. Citizen feedback surveys.",Unknown
+"Turku City","Municipality","Research needed","https://www.turku.fi","",MEDIUM,"Bilingual city on west coast. Public participation surveys.",Unknown
+"Espoo City","Municipality","Research needed","https://www.espoo.fi/sv","",MEDIUM,"Second largest city, growing Swedish community.",Unknown
+"Kela (Social Insurance)","Government","asiakaspalvelu@kela.fi","https://www.kela.fi/sv","",MEDIUM,"Bilingual public social services. Customer satisfaction surveys.",Unknown
+"Ministry of Education and Culture","Government","kirjaamo@minedu.fi","https://minedu.fi","",MEDIUM,"National education and culture policy. May commission research.",Unknown
+"Citizens' Pulse Program","Government Program","Research needed","https://valtioneuvosto.fi/en/citizens-pulse","",MEDIUM,"Monthly citizen surveys (executed by Statistics Finland). Government-commissioned.",Unknown
+"Maptionnaire","GovTech Platform","Research needed","https://maptionnaire.com","",MEDIUM,"PPGIS platform for public participation. Used by Finnish municipalities.",Unknown
+"Svenska Litteratursällskapet (SLS)","Research Institute","info@sls.fi","https://www.sls.fi","",LOW,"Swedish cultural and historical research.",Unknown
+"Åbo Akademi - Faculty of Social Sciences","University","fhs@abo.fi","https://www.abo.fi/en/faculty-of-arts-psychology-and-theology/","+358 2 215 31",LOW,"Sociology and survey research focus.",Unknown
+"Åland Government","Regional Government","registrator@regeringen.ax","https://www.regeringen.ax","+358 18 25000",LOW,"100% Swedish-speaking autonomous region (small market).",Unknown
+"Vasabladet","Media/Newspaper","redaktionen@vasabladet.fi","https://www.vasabladet.fi","",LOW,"West coast Swedish newspaper.",Unknown
+"Åbo Underrättelser","Media/Newspaper","redaktion@au.fi","https://www.au.fi","",LOW,"Turku Swedish newspaper.",Unknown
+"Finlands svenska skoldelegation","Education","info@fsd.fi","https://www.fsd.fi","",LOW,"Swedish-language school administration.",Unknown
+"Zapera","Market Research","info@zapera.com","https://www.zapera.com","",LOW,"Digital survey platform.",Unknown
+"Innolink Research","Market Research","info@innolink.fi","https://www.innolink.fi","",LOW,"Nordic market research (smaller firm).",Unknown
