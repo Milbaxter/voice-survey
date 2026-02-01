@@ -3,7 +3,14 @@
 const { AgentMailClient } = require('agentmail');
 const fs = require('fs');
 
-const API_KEY = 'am_73ed2ee93a8962b43051a06c29e507313301c09c9dcaa5677a78cdb38cae08d8';
+const API_KEY = process.env.AGENTMAIL_API_KEY;
+
+if (!API_KEY) {
+  console.error('❌ Error: AGENTMAIL_API_KEY environment variable not set');
+  console.log('
+Usage: AGENTMAIL_API_KEY=your-key node create-inbox-variations.js');
+  process.exit(1);
+}
 
 const variations = [
   'maximilian-rehn',

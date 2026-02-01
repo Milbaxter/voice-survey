@@ -5,7 +5,13 @@ const fs = require('fs');
 
 // Load the inbox config
 const config = JSON.parse(fs.readFileSync('agentmail-config.json', 'utf8'));
-const API_KEY = process.env.AGENTMAIL_API_KEY || 'am_73ed2ee93a8962b43051a06c29e507313301c09c9dcaa5677a78cdb38cae08d8';
+const API_KEY = process.env.AGENTMAIL_API_KEY;
+
+if (!API_KEY) {
+  console.error('❌ Error: AGENTMAIL_API_KEY environment variable not set');
+  console.log('\nUsage: AGENTMAIL_API_KEY=your-key node send-batch-1-correct.js');
+  process.exit(1);
+}
 
 const client = new AgentMailClient({ apiKey: API_KEY });
 

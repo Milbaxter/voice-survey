@@ -2,7 +2,13 @@
 
 const { AgentMailClient } = require('agentmail');
 
-const API_KEY = 'am_73ed2ee93a8962b43051a06c29e507313301c09c9dcaa5677a78cdb38cae08d8';
+const API_KEY = process.env.AGENTMAIL_API_KEY;
+
+if (!API_KEY) {
+  console.error('❌ Error: AGENTMAIL_API_KEY environment variable not set');
+  console.log('\nUsage: AGENTMAIL_API_KEY=your-key node create-custom-inbox.js');
+  process.exit(1);
+}
 
 async function createCustomInbox() {
   console.log('Creating custom inbox: maximilian.rehn@agentmail.to\n');
